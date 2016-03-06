@@ -31,17 +31,17 @@ bruxelas = pytz.timezone("Europe/Brussels")
 manaus = pytz.timezone("America/Manaus")
 belem = pytz.timezone("America/Belem")
 rio_branco = pytz.timezone("America/Rio_Branco")
-hangout = bruxelas.localize(datetime.datetime(day=5, month=3, year=2016,
+hangout = bruxelas.localize(datetime.datetime(day=2, month=4, year=2016,
                                               hour=19, minute=0))
 
 # Posicoes relativas - calculadas
 FUNDO_CROP = (POSICAO_DO_CROP[0], POSICAO_DO_CROP[1],
               POSICAO_DO_CROP[0] + TAMANHO_CROP[0], POSICAO_DO_CROP[1] + TAMANHO_CROP[1])
 POSICAO_PASTE = (0, 0, AVISO_TAMANHO[0], AVISO_TAMANHO[1])
-FUSAO_FUNDO_MASCARA = 0.5  # 50%
+FUSAO_FUNDO_MASCARA = 0.8  # 50%
 # Cores
 BRANCO = (255, 255, 255, 0)
-VERDE = (0, 200, 180, 255)
+VERDE = (0, 100, 0, 255)
 COR_DO_TEXTO = (255, 255, 255, 255)
 
 
@@ -65,17 +65,17 @@ fGrande = ImageFont.truetype(FONTE_LOGO, TAMANHO_GRANDE)
 fPequena = ImageFont.truetype(FONTE_TEXTO, TAMANHO_PEQUENO)
 
 escreve_centralizado("PyNorte", AVISO_TAMANHO[0], 160, lapis, fGrande)
-lapis.text((20, 210), ">> Hangout sobre Docker", font=fPequena, fill=COR_DO_TEXTO)
-lapis.text((20, 250), ">> Data: {0.day:02d}.{0.month:02d}.{0.year}".format(
+lapis.text((20, 210), ">> Terceiro Hangout", font=fPequena, fill=COR_DO_TEXTO)
+lapis.text((20, 250), ">> Data: {0.day:02d}/{0.month:02d}/{0.year}".format(
            hangout.astimezone(manaus)),
            font=fPequena, fill=COR_DO_TEXTO)
-lapis.text((20, 310), ">> Horário:", font=fPequena, fill=COR_DO_TEXTO)
-lapis.text((20, 330), "            {0.hour:02d}h (Rio Branco)".format(
+lapis.text((20, 290), ">> Horário:", font=fPequena, fill=COR_DO_TEXTO)
+lapis.text((20, 330), "{0.hour:02d}h Rio Branco".format(
            hangout.astimezone(rio_branco)),
            font=fPequena, fill=COR_DO_TEXTO)
-lapis.text((20, 360), "            {0.hour:02d}h (Manaus)".format(hangout.astimezone(manaus)),
+lapis.text((20, 360), "{0.hour:02d}h Manaus, Boa Vista, Porto Velho".format(hangout.astimezone(manaus)),
            font=fPequena, fill=COR_DO_TEXTO)
-lapis.text((20, 390), "            {0.hour:02d}h (Belém)".format(hangout.astimezone(belem)),
+lapis.text((20, 390), "{0.hour:02d}h Belém, Palmas, Macapá".format(hangout.astimezone(belem)),
            font=fPequena, fill=COR_DO_TEXTO)
 
 del lapis
