@@ -16,7 +16,7 @@ castanhas = Image.open("fundo.jpg")
 logo = Image.open("logo.png")
 
 LOGO_PEQUENO = (150, 150)
-AVISO_TAMANHO = (450, 500)
+AVISO_TAMANHO = (450, 600)
 # Parte a retirar da imagem de fundo (castanhas)
 TAMANHO_CROP = AVISO_TAMANHO
 POSICAO_DO_CROP = (100, 100)
@@ -31,7 +31,7 @@ bruxelas = pytz.timezone("Europe/Brussels")
 manaus = pytz.timezone("America/Manaus")
 belem = pytz.timezone("America/Belem")
 rio_branco = pytz.timezone("America/Rio_Branco")
-hangout = bruxelas.localize(datetime.datetime(day=2, month=4, year=2016,
+hangout = bruxelas.localize(datetime.datetime(day=10, month=9, year=2016,
                                               hour=19, minute=0))
 
 # Posicoes relativas - calculadas
@@ -65,7 +65,7 @@ fGrande = ImageFont.truetype(FONTE_LOGO, TAMANHO_GRANDE)
 fPequena = ImageFont.truetype(FONTE_TEXTO, TAMANHO_PEQUENO)
 
 escreve_centralizado("PyNorte", AVISO_TAMANHO[0], 160, lapis, fGrande)
-lapis.text((20, 210), ">> Terceiro Hangout", font=fPequena, fill=COR_DO_TEXTO)
+lapis.text((20, 210), ">> Sétimo Hangout", font=fPequena, fill=COR_DO_TEXTO)
 lapis.text((20, 250), ">> Data: {0.day:02d}/{0.month:02d}/{0.year}".format(
            hangout.astimezone(manaus)),
            font=fPequena, fill=COR_DO_TEXTO)
@@ -76,6 +76,11 @@ lapis.text((20, 330), "{0.hour:02d}h Rio Branco".format(
 lapis.text((20, 360), "{0.hour:02d}h Manaus, Boa Vista, Porto Velho".format(hangout.astimezone(manaus)),
            font=fPequena, fill=COR_DO_TEXTO)
 lapis.text((20, 390), "{0.hour:02d}h Belém, Palmas, Macapá".format(hangout.astimezone(belem)),
+           font=fPequena, fill=COR_DO_TEXTO)
+
+lapis.text((20, 450), "Link para assistir:", font=fPequena, fill=COR_DO_TEXTO)
+lapis.text((20, 480), "http://bit.ly/pynortehangout7", font=fPequena, fill=COR_DO_TEXTO)
+lapis.text((20, 550), "Telegram: {}".format("http://bit.ly/pynorte"),
            font=fPequena, fill=COR_DO_TEXTO)
 
 del lapis
